@@ -23,16 +23,6 @@ class _FormDataState extends State<FormData> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _yearController = TextEditingController();
 
-  // @override
-  // void dispose() {
-
-  //   _titleController.dispose();
-  //   _yearController.dispose();
-  //   super.dispose();
-
-  // }
-
-
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -84,14 +74,14 @@ class _FormDataState extends State<FormData> {
                           years: _yearController.text
                         );
 
-                        await widget._homeController.addBook(book);
+                        await widget._homeController.store(book);
 
                         _titleController.clear();
                       _yearController.clear();
                       widget._refreshlist();
                     }
                   },
-                  child: Text('Add book'),
+                  child: const Text('Add book'),
                 )),
           ],
         ),

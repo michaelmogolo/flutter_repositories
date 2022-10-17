@@ -4,11 +4,11 @@ abstract class IBookRepository {
 
   Future<List<Book>> getAll();
 
-  Future<Book?>getOneBook(int id);
+  Future<Book?>getById(int id);
 
-  Future<void>storeBook(Book book);
+  Future<void>store(Book book);
 
-  Future<void>updateBook(Book book);
+  Future<void>update(Book book);
 
-  Future<void> deleteBook(int id);
+  Future<void> delete(int id);
 }

@@ -19,7 +19,7 @@ class BookRepository implements IBookRepository{
   }
 
   @override
-  Future<Book?> getOneBook(int id) async{
+  Future<Book?> getById(int id) async{
 
     var items = await _db.findOne(id);
 
@@ -28,21 +28,21 @@ class BookRepository implements IBookRepository{
   }
 
   @override
-  Future<void> storeBook(Book book) async{
+  Future<void> store(Book book) async{
 
     await _db.save(book.toJson());
 
   }
 
   @override
-  Future<void> updateBook(Book book) async{
+  Future<void> update(Book book) async{
 
     await _db.update(book.toJson());
 
   }
 
   @override
-  Future<void> deleteBook(int id) async{
+  Future<void> delete(int id) async{
 
     await _db.delete(id);
 

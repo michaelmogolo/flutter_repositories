@@ -21,7 +21,7 @@ class _BookTableState extends State<BookTable> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Book>>(
-      future:widget._homeController.getAll(),
+      future:widget._homeController.index(),
       builder: (context, snapshot){
 
           if(!snapshot.hasData){
@@ -50,12 +50,12 @@ class _BookTableState extends State<BookTable> {
   List<DataRow> _createBookTableRows(List<Book> books) {
     return books
         .map((book) => DataRow(cells: [
-              DataCell(Text('#' + book.id.toString())),
+              DataCell(Text('#${book.id}')),
               DataCell(Text('${book.name} (${book.years.toString()})')),
               DataCell(IconButton(
                 icon: const Icon(Icons.delete),
                 onPressed: () async {
-                  await widget._homeController.removeBook(book.id);
+                  await widget._homeController.delete(book.id);
                   widget._refreshlist();
                 },
               )),

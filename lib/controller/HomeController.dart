@@ -7,20 +7,20 @@ class HomeController{
 
   final BookRepository _bookRepository =  BookRepository(VirtualBD());
 
-  Future<List<Book>> getAll() async{
+  Future<List<Book>> index() async{
 
     return _bookRepository.getAll();
   }
 
-  Future<void> addBook(Book book) async {
+  Future<void> store(Book book) async {
 
-    return _bookRepository.storeBook(book);
+    return _bookRepository.store(book);
 
   }
 
-  Future<void> removeBook(int id) async {
+  Future<void> delete(int id) async {
 
-    return _bookRepository.deleteBook(id);
+    return _bookRepository.delete(id);
 
   }
 }
